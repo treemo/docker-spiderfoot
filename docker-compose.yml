@@ -1,0 +1,20 @@
+# init:
+#     touch spiderfoot.db
+
+version: '2'
+
+services:
+  spiderfoot:
+    image: treemo/spiderfoot
+    container_name: spiderfoot
+    ports:
+      - 127.0.0.1:8080:8080
+    volumes:
+      - ./spiderfoot.db:/usr/src/app/spiderfoot.db
+      - /etc/localtime:/etc/localtime:ro
+    cpu_shares: 73
+    cpu_quota: 50000
+    cpuset: 0,0
+    mem_limit: 2g
+    memswap_limit: 2g
+
